@@ -1,0 +1,10 @@
+
+
+
+
+
+1. Create the projectTables components like
+	-> Button : Projects 
+	-> Selected project component
+2. The button creates a new Project Manager window
+	-> the project manager can show the project oriented history	
