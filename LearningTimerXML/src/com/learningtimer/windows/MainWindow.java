@@ -21,7 +21,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Map;
-import java.util.Optional;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -140,7 +139,7 @@ public class MainWindow implements ActionListener {
 		frame.addWindowListener(new WindowAdapter() {
 
 			/*
-			 * This method override saves the changes if no stop button pressed before exit.
+			 * This method saves the changes if no stop button pressed before exit.
 			 */
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -294,9 +293,9 @@ public class MainWindow implements ActionListener {
 	}
 
 	private void setButtonsIcon() {
-		ImageIcon start = new ImageIcon(getClass().getResource("/start.png"));
-		ImageIcon pause = new ImageIcon(getClass().getResource("/pause.png"));
-		ImageIcon stop = new ImageIcon(getClass().getResource("/stop.png"));
+		ImageIcon start = new ImageIcon(getClass().getResource("/icons/start.png"));
+		ImageIcon pause = new ImageIcon(getClass().getResource("/icons/pause.png"));
+		ImageIcon stop = new ImageIcon(getClass().getResource("/icons/stop.png"));
 
 		Image startImage = start.getImage();
 		Image pauseImage = pause.getImage();
@@ -346,7 +345,6 @@ public class MainWindow implements ActionListener {
 		}
 		if (e.getSource() == btnStop) {
 			timer.stop();
-//			session.calculateSessionPassedTimeAndPercent(session.getTimeWhenStarted());
 			session.setTimePassed(time);
 			session.calculateSessionPercent();
 			thisDay.setDailyProgressPercent(Double.valueOf(progressBar.getString()
@@ -400,9 +398,9 @@ public class MainWindow implements ActionListener {
 				.map(od -> od.getTimeSessions()
 						.stream()
 						.filter(ts -> !ts.isArchived())
-						.findFirst()
+						.reduce((a, b) -> b)
 						.orElse(null))
-				.findFirst()
+				.reduce((a, b) -> b)
 				.orElse(null);
 		if (lastUsedTimeSession != null) {
 			return lastUsedTimeSession.getProject()

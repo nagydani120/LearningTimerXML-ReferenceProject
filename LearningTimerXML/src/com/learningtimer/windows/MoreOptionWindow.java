@@ -15,6 +15,7 @@ import com.learningtimer.moreWindowButtons.ChangePTimeButton;
 import com.learningtimer.moreWindowButtons.ClearButton;
 import com.learningtimer.moreWindowButtons.HistoryButton;
 
+@SuppressWarnings("serial")
 public class MoreOptionWindow extends JFrame implements ItemListener {
 
 	private JTextPane txtClearTheLog;
@@ -26,16 +27,10 @@ public class MoreOptionWindow extends JFrame implements ItemListener {
 
 	private JProgressBar progressBar;
 
-	/**
-	 * Launch the application.
-	 */
 
 	/**
 	 * Create the application.
 	 */
-//	public MoreOption() {
-//		initialize();
-//	}
 	public MoreOptionWindow(JProgressBar progressBar) {
 		this.progressBar = progressBar;
 		initialize();

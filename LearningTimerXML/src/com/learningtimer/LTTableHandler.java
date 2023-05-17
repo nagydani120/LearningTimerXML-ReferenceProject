@@ -27,9 +27,6 @@ public class LTTableHandler {
 								.getDailyProgressPercent() }));
 	}
 
-	/*
-	 * Comment
-	 */
 	public static void fillMainTableWithData(DefaultTableModel model) {
 		Map<LocalDate, OneDay> redData = LTFileHandler.loadData();
 		model.setRowCount(0);
@@ -77,7 +74,7 @@ public class LTTableHandler {
 				}));
 		projectsWithDuration.forEach((a, b) -> {
 			projectModel.addRow(new String[] { a.getProjectName(),
-					b.toHoursPart() + " hour " + b.toMinutesPart() + " min. " + b.toSecondsPart() + " sec. " });
+					b.toHours() + " hour " + b.toMinutesPart() + " min. " + b.toSecondsPart() + " sec. " });
 		});
 
 	}

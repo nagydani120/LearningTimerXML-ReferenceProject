@@ -1,6 +1,8 @@
 package com.learningtimer;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -49,9 +51,21 @@ import com.learningtimer.windows.MainWindow;
 //@ formatter:on
 public class LTFileHandler extends MainWindow {
 	private static Document doc = null;
-	private static File file = new File("ltdata.xml");
+	private static File file;
 	public static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss"); // pattern used in the .xml
 																							// to save times
+
+	// the LearningTimer creates the ltdata.xml in the same directory where the jar
+	// file(after exporting) is located
+	static {
+		String jarPath = LTFileHandler.class.getProtectionDomain()
+				.getCodeSource()
+				.getLocation()
+				.getPath();
+		Path jarDirectory = Paths.get(jarPath)
+				.getParent();
+		file = new File(jarDirectory.toFile(), "ltdata.xml");
+	}
 
 	public static void dataWriter(OneDay day, TimeSession timeSessionObject) {
 
@@ -62,7 +76,7 @@ public class LTFileHandler extends MainWindow {
 			if (!file.isFile()) { // create or read the file.
 				doc = initializeFile();
 			} else {
-				doc = db.parse("ltdata.xml");
+				doc = db.parse(file);
 			}
 
 			if ((Element) doc.getFirstChild() == null || doc.getElementsByTagName("D" + LocalDate.now())
@@ -120,7 +134,7 @@ public class LTFileHandler extends MainWindow {
 		}
 	}
 
-	private static Document initializeFile() // if its first run,or after clear function adds the root element to .xml
+	private static Document initializeFile() // if its first run,or after "clear" function adds the root element to .xml
 			throws Exception {
 		DocumentBuilder db = DocumentBuilderFactory.newInstance()
 				.newDocumentBuilder();

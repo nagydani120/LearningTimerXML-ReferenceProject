@@ -18,6 +18,7 @@ import com.learningtimer.LTFileHandler;
 import com.learningtimer.LTTableHandler;
 import com.learningtimer.dataStoreObjects.OneDay;
 
+@SuppressWarnings("serial")
 public class ProgressHistoryWindow extends JFrame {
 
 	private JTable table;

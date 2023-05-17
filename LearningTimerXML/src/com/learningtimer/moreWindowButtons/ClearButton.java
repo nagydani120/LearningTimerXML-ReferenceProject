@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import com.learningtimer.LTFileHandler;
 import com.learningtimer.windows.MainWindow;
+@SuppressWarnings("serial")
 
 public class ClearButton extends JButton implements ActionListener {
 

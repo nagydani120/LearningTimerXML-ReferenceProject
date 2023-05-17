@@ -22,6 +22,7 @@ import com.learningtimer.projectWindowButtons.ArchivedWindowButton;
 import com.learningtimer.projectWindowButtons.ContinueButton;
 import com.learningtimer.projectWindowButtons.DeleteButton;
 
+@SuppressWarnings("serial")
 public class ProjectWindow extends JFrame implements FocusListener {
 
 	private JTable table;
@@ -33,7 +34,7 @@ public class ProjectWindow extends JFrame implements FocusListener {
 
 	private DefaultTableModel projectModel;
 	private DefaultTableModel projectSessionsModel;
-	private JTextPane txtSelectedProject; // it should be in just the method,its confusing
+	private JTextPane txtSelectedProject; 
 	private JTextPane txtSelectedProjectName;
 
 	private JTextPane mainWindowsSelectedProject;
@@ -50,7 +51,6 @@ public class ProjectWindow extends JFrame implements FocusListener {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	@SuppressWarnings("serial")
 	private void initialize() {
 //		frame = new JFrame();
 		this.setLocation(500, 150);

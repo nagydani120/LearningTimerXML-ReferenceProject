@@ -18,6 +18,7 @@ import com.learningtimer.dataStoreObjects.OneDay;
 import com.learningtimer.dataStoreObjects.Project;
 import com.learningtimer.dataStoreObjects.TimeSession;
 
+@SuppressWarnings("serial")
 public class AddButton extends JButton implements ActionListener {
 
 	DefaultTableModel model;

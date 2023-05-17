@@ -10,10 +10,11 @@ import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
 import com.learningtimer.LTFileHandler;
-import com.learningtimer.LTPercentCalculator;
 import com.learningtimer.LTTableHandler;
 import com.learningtimer.dataStoreObjects.Project;
 
+
+@SuppressWarnings("serial")
 public class DeleteButton extends JButton implements ActionListener {
 
 	private DefaultTableModel model;
@@ -43,7 +44,7 @@ public class DeleteButton extends JButton implements ActionListener {
 					.toString()));
 		selectedProjectNameText.setText("Not selected");
 		mainWindowsSelectedProjectText.setText("Not selected");
-		LTTableHandler.fillTheProjectTable(model,false);
+		LTTableHandler.fillTheProjectTable(model, false);
 		this.setEnabled(false);
 	}
 

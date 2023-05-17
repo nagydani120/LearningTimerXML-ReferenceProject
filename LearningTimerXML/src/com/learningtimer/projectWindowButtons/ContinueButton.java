@@ -7,11 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
-import javax.swing.table.DefaultTableModel;
 
+@SuppressWarnings("serial")
 public class ContinueButton extends JButton implements ActionListener {
 
-	private DefaultTableModel model;
 	private JTextPane txtSelectedProjectName;
 	private JFrame frame;
 	private JTextPane mainWindowsSelectedProjectText;

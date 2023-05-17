@@ -1,0 +1,14 @@
+											Learning Timer
+
+This application is created by me after 3-4 months programming, the classes are not really transparent, 
+there is not much comment or description, i just did fast for myself to measure the learning progress.
+(i set the daily progress to 5 .hours)
+
+The application is able to create projects, measure times spent in projects,calculate progress, get the history and the sum,
+archive and unarchive projects, save and load the sessions from .xml file, so the save is local.
+(first version used .txt file, i upgraded to .xml) 
+ 
+I didn't found for Linux a normal project learning timer, so i did mine.
+
+ (there are some smaller bugs, sometimes there is much hardcoded part, 
+ but it was between my first projects what contains more classes, so in summary its working, i learned a lot)

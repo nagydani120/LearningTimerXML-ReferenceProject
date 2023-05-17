@@ -16,6 +16,7 @@ import com.learningtimer.LTFileHandler;
 import com.learningtimer.LTTableHandler;
 import com.learningtimer.dataStoreObjects.Project;
 
+@SuppressWarnings("serial")
 public class ArchivedWindow extends JFrame implements ActionListener, FocusListener {
 
 	private JTable table;
@@ -37,7 +38,6 @@ public class ArchivedWindow extends JFrame implements ActionListener, FocusListe
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	@SuppressWarnings("serial")
 	private void initialize() {
 		table = new JTable(model) {
 			@Override
