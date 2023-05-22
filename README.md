@@ -2,18 +2,18 @@
 
 Learning Timer is mainly created for measuring the time spent on different projects.
 
-Features:
+**Features:**
 
--> create, delete, select a project
--> archive/unarchive projects
--> local save to .xml file
--> start, stop, and pause the timer
--> history, daily average, clear history
--> change progress target, show a daily progress percentage
--> gui
+-> create, delete, select a project <br>
+-> archive/unarchive projects <br>
+-> local save to .xml file <br>
+-> start, stop, and pause the timer <br>
+-> history, daily average, clear history <br>
+-> change progress target, show a daily progress percentage <br>
+-> gui <br>
 
 
-The runnable project contains 2 files: 
+The runnable project contains **2** files: 
 - Runnable jar file that contains all necessary file
 - An .xml file where everything is saved
 
@@ -22,5 +22,5 @@ going to be created automatically.
 
 
 
-The learning time was my first "bigger" project. I choose this because I didn't find an acceptable alternative in Linux OS to 
-measure the time spent with learning. The uploaded .xml file contains my time sessions(I didn't use every time)
+*Note: The learning time was my first "bigger" project. I choose this because I didn't find an acceptable alternative in Linux OS to 
+measure the time spent with learning. The uploaded .xml file contains my time sessions(I didn't use every time)*
