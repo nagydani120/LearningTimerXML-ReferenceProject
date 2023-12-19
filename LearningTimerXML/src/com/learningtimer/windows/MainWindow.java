@@ -3,7 +3,6 @@ package com.learningtimer.windows;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -92,22 +91,6 @@ public class MainWindow implements ActionListener {
 		} else {
 			TIME_TO_PROGRESS_IN_SECONDS = 18000;
 		}
-	}
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow mw = new MainWindow();
-					mw.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	}
 
 	/*
@@ -204,9 +187,8 @@ public class MainWindow implements ActionListener {
 		progressBar.setForeground(new Color(34, 139, 34));
 		setProgressBarPercent();
 		// Popup message to show the actual setting for daily time progress
-		progressBar.setToolTipText(
-				"The actual daily learning target is " + LocalTime.ofSecondOfDay(TIME_TO_PROGRESS_IN_SECONDS)
-						.format(LTFileHandler.timeFormat));
+		progressBar.setToolTipText("The actual daily learning target is "
+				+ LocalTime.ofSecondOfDay(TIME_TO_PROGRESS_IN_SECONDS).format(LTFileHandler.timeFormat));
 
 		timerPanel.add(passedTimePanel);
 		timerPanel.add(timePassed);
@@ -248,12 +230,9 @@ public class MainWindow implements ActionListener {
 		projectPanel.setBackground(new Color(143, 240, 164));
 		projectPanel.setBorder(new EmptyBorder(2, 2, 2, 2));
 
-		frame.getContentPane()
-				.add(tablePanel, BorderLayout.CENTER);
-		frame.getContentPane()
-				.add(projectPanel, BorderLayout.SOUTH);
-		frame.getContentPane()
-				.add(buttonPanel, BorderLayout.NORTH);
+		frame.getContentPane().add(tablePanel, BorderLayout.CENTER);
+		frame.getContentPane().add(projectPanel, BorderLayout.SOUTH);
+		frame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
 
 		setButtonsIcon();
 		LTTableHandler.fillMainTableWithData(model);
@@ -347,8 +326,7 @@ public class MainWindow implements ActionListener {
 			timer.stop();
 			session.setTimePassed(time);
 			session.calculateSessionPercent();
-			thisDay.setDailyProgressPercent(Double.valueOf(progressBar.getString()
-					.replace("%", "")));
+			thisDay.setDailyProgressPercent(Double.valueOf(progressBar.getString().replace("%", "")));
 			System.out.println(session.getTimeSessionPercent());
 
 			model.setRowCount(0); // clear the table
@@ -394,25 +372,21 @@ public class MainWindow implements ActionListener {
 		Map<LocalDate, OneDay> redData = LTFileHandler.loadData();
 		Collection<OneDay> values = redData.values();
 
-		TimeSession lastUsedTimeSession = values.stream()
-				.map(od -> od.getTimeSessions()
-						.stream()
-						.filter(ts -> !ts.isArchived())
-						.reduce((a, b) -> b)
-						.orElse(null))
-				.reduce((a, b) -> b)
-				.orElse(null);
+		TimeSession lastUsedTimeSession = values.stream().map(
+				od -> od.getTimeSessions().stream().filter(ts -> !ts.isArchived()).reduce((a, b) -> b).orElse(null))
+				.reduce((a, b) -> b).orElse(null);
 		if (lastUsedTimeSession != null) {
-			return lastUsedTimeSession.getProject()
-					.getProjectName();
+			return lastUsedTimeSession.getProject().getProjectName();
 		} else {
 			return "Not selected";
 		}
 	}
 
 	private boolean isProjectSelected() {
-		return !txtSelectedProjectName.getText()
-				.equals("Not selected");
+		return !txtSelectedProjectName.getText().equals("Not selected");
 	}
 
+	public JFrame getMainFrame() {
+		return frame;
+	}
 }

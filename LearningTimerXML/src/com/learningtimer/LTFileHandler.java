@@ -62,9 +62,10 @@ public class LTFileHandler extends MainWindow {
 				.getCodeSource()
 				.getLocation()
 				.getPath();
-		Path jarDirectory = Paths.get(jarPath)
-				.getParent();
-		file = new File(jarDirectory.toFile(), "ltdata.xml");
+		File fileDirectory = new File(jarPath).getParentFile();
+		file = new File(fileDirectory, "ltdata.xml");
+	
+		
 	}
 
 	public static void dataWriter(OneDay day, TimeSession timeSessionObject) {
