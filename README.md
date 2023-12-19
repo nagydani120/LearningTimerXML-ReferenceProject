@@ -27,3 +27,5 @@ going to be created automatically.
 
 *Note: The learning time was my first "bigger" project. I choose this because I didn't find an acceptable alternative in Linux OS to 
 measure the time spent with learning. The uploaded .xml file contains my time sessions(I didn't use every time)*
+
+*PS: Although the code is a bit hardcoded and not well-organized, it was a good choice for learning purposes. Today, I would do it better.*
